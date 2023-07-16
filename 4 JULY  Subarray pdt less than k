@@ -1,0 +1,24 @@
+   long long prod=1;
+        int count =0;
+        int left=0;
+        int right=0;
+        //right and left are the pointers to start and end of window
+        for(right=0;right<n;right++)
+        {
+            prod=prod*a[right];
+            
+            while(prod>=k && left<=right)
+            {
+                prod=prod/a[left];
+                left++;
+            }
+            
+            if(prod<k)
+            {
+                //As we add one element to the left side of our window it produces (right-left+1)
+                count=count + right-left+1;
+            }
+        }
+        return count;
+        
+    }
