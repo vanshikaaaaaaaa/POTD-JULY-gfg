@@ -1,0 +1,31 @@
+ unordered_map<char , int> count;
+    queue<int> q ; 
+    string ans = "";
+    
+    for(int i= 0;i< A.length() ; i++){
+        
+        char ch = A[i];
+        count[ch]++;
+        
+        q.push(ch);
+        
+        while(!q.empty()){
+            if(count[q.front()]> 1 ){  //kuoki agr reapeating chacter aayega to 
+                                       // pop() krke empty hojayega aur ans me # push_back
+                                       // hojayga . 
+                q.pop();
+            }
+            else 
+            {
+                ans.push_back(q.front()); // if non-repeating then ans mei same element aagya
+                break; // why?/
+            }
+            
+        }
+        if(q.empty()){
+            ans.push_back('#');
+        }
+        
+    }
+    return ans;
+}
